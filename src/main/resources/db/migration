@@ -1,0 +1,14 @@
+CREATE TABLE patients (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    birth_date DATE NOT NULL,
+    gender VARCHAR(10) NOT NULL
+);
+
+CREATE TABLE medical_records (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    patient_id BIGINT NOT NULL,
+    record_date DATE NOT NULL,
+    description TEXT NOT NULL,
+    FOREIGN KEY (patient_id) REFERENCES patients(id)
+);
